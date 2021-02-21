@@ -1,0 +1,11 @@
+.page__section {
+  /*max-width: calc(100% - 200px * 2);*/
+  max-width: calc(100% - 31.25%);
+  margin: 0 auto;
+}
+
+/*@media screen and (max-width: 1279px){
+  .page__section {
+    max-width: calc(100% - 150px * 2);
+  }
+}*/

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mesto</title>
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body class="page">
+  <div class="page__container">
+
+    <header class="header page__section">
+      <img class="header__logo" src="./images/logo-vect.svg" alt="Место Россия">
+      <div class="header__line"></div>
+    </header>
+
+    <main class="">
+
+      <section class="profile page__section">
+        <img class="profile__avatar" src="./images/cousteau.jpg" alt="Кусто">
+        <div class="profile__container">
+          <div class="profile__info">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button class="button profile__edit-button"></button>
+            <span class="profile__job">Исследователь океана</span>
+          </div>
+          <button class="button profile__add-button"></button> 
+        </div>
+      </section>
+
+      <section class="elements page__section">
+        <ul class="elements__list">
+          <li class="elements__element">
+            <img src="./images/elbrus2.jpg" class="elements__image">
+            <h2 class="elements__title">Гора Эльбрус</h2>
+            <input type="checkbox" name="like" class="button elements__like-button"></input>
+          </li>
+
+          <li class="elements__element">
+            <img src="./images/ural-mnts.jpg" class="elements__image">
+            <h2 class="elements__title">Уральские горы</h2>
+            <button class="button elements__like-button"></button>
+          </li>
+
+          <li class="elements__element">
+            <img src="./images/ufa.jpg" class="elements__image">
+            <h2 class="elements__title">Уфа</h2>
+            <button class="button elements__like-button"></button>
+          </li>
+
+          <li class="elements__element">
+            <img src="./images/elbrus3.jpg" class="elements__image">
+            <h2 class="elements__title">Карачаево-Черкессия</h2>
+            <button class="button elements__like-button"></button>
+          </li>
+
+          <li class="elements__element">
+            <img src="./images/ufa.jpg" class="elements__image">
+            <h2 class="elements__title">Памятник Салавату-Юлаеву</h2>
+            <button class="button elements__like-button"></button>
+          </li>
+
+          <li class="elements__element">
+            <img src="./images/ural-mnts.jpg" class="elements__image">
+            <h2 class="elements__title">Уральские горы</h2>
+            <button class="button elements__like-button"></button>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer page__section">
+      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
+  </div>
+
+</body>
+
+</html>
