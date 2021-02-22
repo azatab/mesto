@@ -17,56 +17,58 @@
       <div class="header__line"></div>
     </header>
 
-    <main class="">
+    <main>
 
       <section class="profile page__section">
-        <img class="profile__avatar" src="./images/cousteau.jpg" alt="Кусто">
         <div class="profile__container">
-          <div class="profile__info">
-            <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button class="button profile__edit-button"></button>
-            <span class="profile__job">Исследователь океана</span>
+          <img class="profile__avatar" src="./images/cousteau.jpg" alt="Кусто">
+          <div class="profile__info">  
+            <div class="profile__description">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <p class="profile__job">Исследователь океана</p>
+            </div>
+            <button class="button profile__edit-button" id="profile-edit"></button>
           </div>
-          <button class="button profile__add-button"></button> 
         </div>
+        <button class="button profile__add-button"></button> 
       </section>
 
-      <section class="elements page__section">
-        <ul class="elements__list">
-          <li class="elements__element">
-            <img src="./images/elbrus2.jpg" class="elements__image">
-            <h2 class="elements__title">Гора Эльбрус</h2>
-            <input type="checkbox" name="like" class="button elements__like-button"></input>
+      <section class="cards page__section">
+        <ul class="cards__list">
+          <li class="cards__item">
+            <img src="./images/elbrus2.jpg" class="cards__image">
+            <h2 class="cards__title">Гора Эльбрус</h2>
+            <button class="button cards__like-button"></button>
           </li>
 
-          <li class="elements__element">
-            <img src="./images/ural-mnts.jpg" class="elements__image">
-            <h2 class="elements__title">Уральские горы</h2>
-            <button class="button elements__like-button"></button>
+          <li class="cards__item">
+            <img src="./images/ural-mnts.jpg" class="cards__image">
+            <h2 class="cards__title">Уральские горы</h2>
+            <button class="button cards__like-button"></button>
           </li>
 
-          <li class="elements__element">
-            <img src="./images/ufa.jpg" class="elements__image">
-            <h2 class="elements__title">Уфа</h2>
-            <button class="button elements__like-button"></button>
+          <li class="cards__item">
+            <img src="./images/ufa.jpg" class="cards__image">
+            <h2 class="cards__title">Уфа</h2>
+            <button class="button cards__like-button"></button>
           </li>
 
-          <li class="elements__element">
-            <img src="./images/elbrus3.jpg" class="elements__image">
-            <h2 class="elements__title">Карачаево-Черкессия</h2>
-            <button class="button elements__like-button"></button>
+          <li class="cards__item">
+            <img src="./images/elbrus3.jpg" class="cards__image">
+            <h2 class="cards__title">Карачаево-Черкессия</h2>
+            <button class="button cards__like-button"></button>
           </li>
 
-          <li class="elements__element">
-            <img src="./images/ufa.jpg" class="elements__image">
-            <h2 class="elements__title">Памятник Салавату-Юлаеву</h2>
-            <button class="button elements__like-button"></button>
+          <li class="cards__item">
+            <img src="./images/ufa.jpg" class="cards__image">
+            <h2 class="cards__title">Памятник Салавату-Юлаеву</h2>
+            <button class="button cards__like-button"></button>
           </li>
 
-          <li class="elements__element">
-            <img src="./images/ural-mnts.jpg" class="elements__image">
-            <h2 class="elements__title">Уральские горы</h2>
-            <button class="button elements__like-button"></button>
+          <li class="cards__item">
+            <img src="./images/ural-mnts.jpg" class="cards__image">
+            <h2 class="cards__title">Уральские горы</h2>
+            <button class="button cards__like-button"></button>
           </li>
         </ul>
       </section>
@@ -75,8 +77,21 @@
     <footer class="footer page__section">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-  </div>
 
+    <section class="popup">
+      <div class="popup__edit">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input class="popup__input" type="text" id="input-name">
+        <div class="popup__line"></div>
+        <input class="popup__input" type="text" id="input-job">
+        <div class="popup__line"></div>
+        <button class="button popup__save" type="submit" id="save">Сохранить</button>
+        <button class="button popup__close" id="popup-close"></button>
+      </div>
+      
+    </section>
+  </div>
+  <script src="./scripts/profile__edit.js"></script>
 </body>
 
 </html>

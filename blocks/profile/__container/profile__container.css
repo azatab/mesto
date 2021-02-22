@@ -1,11 +1,24 @@
 .profile__container {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  /*justify-content: space-between;*/
 }
 
-@media screen and (max-width: 1065px){
+/*@media screen and (max-width: 1065px){
   .profile__container {
     flex-direction: column;
     align-content: space-between;
+  }
+}*/
+
+@media screen and (max-width: 744px) {
+  .profile__container {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 618px) {
+  .profile__container {
+    flex-direction: column;
   }
 }

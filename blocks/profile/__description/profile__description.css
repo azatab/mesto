@@ -1,0 +1,12 @@
+.profile__description {
+  padding: 0 17px 0 30px;
+  align-self: center;
+  /*max-width: 350px;*/
+}
+
+@media screen and (max-width: 618px) {
+  .profile__description {
+    justify-content: center;
+    padding: 26px 10px 0 28px;
+  }
+}
