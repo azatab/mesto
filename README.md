@@ -1,6 +1,6 @@
 # Проектная работа №4: Место
 
-![Logo](./images/logo.png)
+![Logo](https://azatab.github.io/mesto/images/logo-vect.svg)
 
 ## Описание
 
@@ -17,4 +17,4 @@ Mesto - интерактивная страница с возможностью 
 * JavaScript
 * Адаптивная верстка
 
-Адрес: 
+Адрес: https://azatab.github.io/mesto/
