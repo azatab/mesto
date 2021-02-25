@@ -14,7 +14,6 @@
 
     <header class="header page__section">
       <img class="header__logo" src="./images/logo-vect.svg" alt="Место Россия">
-      <div class="header__line"></div>
     </header>
 
     <main>
@@ -25,12 +24,12 @@
           <div class="profile__info">  
             <div class="profile__description">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
-              <button class="button profile__edit-button" id="profile-edit" aria-label="редактировать профиль"></button>  
+              <button class="button profile__edit-button" type="button" id="profile-edit" aria-label="редактировать профиль"></button>  
             </div>
             <p class="profile__job">Исследователь океана</p>
           </div>
         </div>
-        <button class="button profile__add-button" aria-label="добавить фото"></button> 
+        <button class="button profile__add-button" type="button" aria-label="добавить фото"></button> 
       </section>
 
       <section class="cards page__section">
@@ -38,37 +37,37 @@
           <li class="cards__item">
             <img src="./images/elbrus2.jpg" class="cards__image" alt="Эльбрус">
             <h2 class="cards__title">Гора Эльбрус</h2>
-            <button class="button cards__like-button" aria-label="поставить лайк"></button>
+            <button class="button cards__like-button" type="button" aria-label="поставить лайк"></button>
           </li>
 
           <li class="cards__item">
             <img src="./images/ural-mnts.jpg" class="cards__image" alt="Уральские горы">
             <h2 class="cards__title">Уральские горы</h2>
-            <button class="button cards__like-button" aria-label="поставить лайк"></button>
+            <button class="button cards__like-button" type="button" aria-label="поставить лайк"></button>
           </li>
 
           <li class="cards__item">
             <img src="./images/ufa.jpg" class="cards__image" alt="Уфа">
             <h2 class="cards__title">Уфа</h2>
-            <button class="button cards__like-button" aria-label="поставить лайк"></button>
+            <button class="button cards__like-button" type="button" aria-label="поставить лайк"></button>
           </li>
 
           <li class="cards__item">
             <img src="./images/elbrus3.jpg" class="cards__image" alt="Карачаево-Черкессия">
             <h2 class="cards__title">Карачаево-Черкессия</h2>
-            <button class="button cards__like-button" aria-label="поставить лайк"></button>
+            <button class="button cards__like-button" type="button" aria-label="поставить лайк"></button>
           </li>
 
           <li class="cards__item">
             <img src="./images/ufa.jpg" class="cards__image" alt="Памятник">
             <h2 class="cards__title">Памятник Салавату-Юлаеву</h2>
-            <button class="button cards__like-button" aria-label="поставить лайк"></button>
+            <button class="button cards__like-button" type="button" aria-label="поставить лайк"></button>
           </li>
 
           <li class="cards__item">
             <img src="./images/ural-mnts.jpg" class="cards__image" alt="Урал">
             <h2 class="cards__title">Уральские горы</h2>
-            <button class="button cards__like-button" aria-label="поставить лайк"></button>
+            <button class="button cards__like-button" type="button" aria-label="поставить лайк"></button>
           </li>
         </ul>
       </section>
@@ -82,11 +81,9 @@
       <div class="popup__edit">
         <h2 class="popup__title">Редактировать профиль</h2>
         <input class="popup__input" type="text" id="input-name">
-        <div class="popup__line"></div>
         <input class="popup__input" type="text" id="input-job">
-        <div class="popup__line"></div>
         <button class="button popup__save" type="submit" id="save" aria-label="сохранить">Сохранить</button>
-        <button class="button popup__close" id="popup-close" aria-label="закрыть"></button>
+        <button class="button popup__close" type="button" id="popup-close" aria-label="закрыть"></button>
       </div>
       
     </section>
