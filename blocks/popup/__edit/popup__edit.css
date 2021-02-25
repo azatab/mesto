@@ -1,7 +1,6 @@
 .popup__edit {
   max-width: calc(430px - 36px * 2);
   width: 100%;
-  min-height: calc(330px - 34px - 37px);
   background-color: #fff;
   border-radius: 10px;
   display: flex;
@@ -14,6 +13,5 @@
   .popup__edit {
     padding: 25px 22px;
     max-width: calc(282px - 22px * 2);
-    min-height: calc(322px - 25px * 2);
   }
 }
