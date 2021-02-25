@@ -1,12 +1,11 @@
 .profile__description {
-  padding: 0 17px 0 30px;
-  align-self: center;
-  /*max-width: 350px;*/
+  display: grid;
+  grid-template-columns: max-content 24px;
+  gap: 18px;
 }
 
 @media screen and (max-width: 618px) {
   .profile__description {
-    justify-content: center;
-    padding: 26px 10px 0 28px;
+    gap: 10px;
   }
 }

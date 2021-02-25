@@ -1,9 +1,9 @@
 .profile {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
-@media screen and (max-width: 744px){
+@media screen and (max-width: 820px){
   .profile {
     flex-direction: column;
   }
