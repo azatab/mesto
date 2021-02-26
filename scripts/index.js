@@ -3,7 +3,6 @@ let closePopupButton = document.querySelector('.popup__close')
 let popup = document.querySelector('.popup');
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__job');
-//let saveButton = document.querySelector('.popup__save');
 let inputName = document.querySelector('#input-name');
 let inputJob = document.querySelector('#input-job');
 let formElement = document.querySelector('.form');
