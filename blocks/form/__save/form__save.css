@@ -1,4 +1,4 @@
-.popup__save {
+.form__save {
   height: 50px;
   background-color: #000;
   border-radius: 2px;
@@ -8,12 +8,12 @@
   line-height: 1.2;
 }
 
-.popup__save:hover {
+.form__save:hover {
   opacity: .8;
 }
 
 @media screen and (max-width: 618px){
-  .popup__save {
+  .form__save {
     font-size: 14px;
   }
 }
