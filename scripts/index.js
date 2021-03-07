@@ -6,6 +6,7 @@ let profileJob = document.querySelector('.profile__job');
 let inputName = document.querySelector('#input-name');
 let inputJob = document.querySelector('#input-job');
 let formElement = document.querySelector('.form');
+let likeButton = document.querySelectorAll('.cards__like-button');
 
 function formSubmitHandler (event) {
   event.preventDefault();
@@ -24,6 +25,13 @@ function closePopupEdit () {
   popup.classList.remove('popup_is-opened');
 }
 
+const toggleLike = (evt) => {
+  evt.target.classList.toggle('cards__like-button-active');
+}
+
 editProfileButton.addEventListener('click', showPopupEdit);
 closePopupButton.addEventListener('click', closePopupEdit);
 formElement.addEventListener('submit', formSubmitHandler); 
+likeButton.forEach(function (entry) {
+  entry.addEventListener('click', toggleLike);
+});
