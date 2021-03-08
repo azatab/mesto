@@ -8,10 +8,10 @@ const initialCards = [
 ];
 
 let editProfileButton = document.querySelector('#profile-edit');
-
 let addButton = document.querySelector('.profile__add-button');
 let popupEdit = document.querySelector('.popup-edit');
 let popupAdd = document.querySelector('.popup-add');
+let popupImage = document.querySelector('.popup-image');
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__job');
 let inputName = document.querySelector('#input-name');
@@ -32,8 +32,10 @@ function editFormSubmitHandler (event) {
 
 function addFormSubmitHandler (event) {
   event.preventDefault();
-  //profileName.textContent =  inputName.value;
-  //profileJob.textContent = inputJob.value;
+  const inputPlace = inputPlaceName.value;
+  const inputLink = inputImageLink.value;
+  const newPlace = createCardDomNode({name: inputPlace, link: inputLink});
+  cardsContainer.prepend(newPlace);
   closePopup(event);
 }
 
@@ -62,6 +64,24 @@ function deleteCardHandler(evt) {
   currentCard.remove();
 }
 
+function exploreImage(evt) {
+  popupImage.classList.add('popup_is-opened');
+  const image = document.querySelector('.popup-image__photo');
+  const caption = document.querySelector('.popup-image__figcaption');
+  image.src = evt.target.src;
+  image.alt = evt.target.alt;
+  caption.textContent = evt.target.alt;
+}
+
+function addTaskListeners(task) {
+  const deleteButton = task.querySelector('.cards__delete-button');
+  deleteButton.addEventListener('click', deleteCardHandler);
+  const likeButton = task.querySelector('.cards__like-button');
+  likeButton.addEventListener('click', toggleLike);
+  const image = task.querySelector('.cards__image');
+  image.addEventListener('click', exploreImage);
+}
+
 function createCardDomNode(item) {
   const newCard = templateCard.content.cloneNode(true);
   const title = newCard.querySelector('.cards__title');
@@ -69,13 +89,14 @@ function createCardDomNode(item) {
   title.textContent = item.name;
   image.src = item.link;
   image.alt = item.name;
-
+  addTaskListeners(newCard);
   return newCard;
 }
 
 function renderInitialCards() {
   const result = initialCards.map(function(item) {
     const newCard = createCardDomNode(item);
+    addTaskListeners(newCard);
     return newCard;
   });
   cardsContainer.append(...result);
@@ -87,16 +108,6 @@ editProfileButton.addEventListener('click', showPopupEdit);
 addButton.addEventListener('click', showPopupAdd);
 formEditElement.addEventListener('submit', editFormSubmitHandler);
 formAddElement.addEventListener('submit', addFormSubmitHandler);
-
-const likeButton = document.querySelectorAll('.cards__like-button');
-likeButton.forEach(function (entry) {
-  entry.addEventListener('click', toggleLike);
-});
-
-const deleteButton = document.querySelectorAll('.cards__delete-button');
-deleteButton.forEach(function(entry) {
-  entry.addEventListener('click', deleteCardHandler);
-});
 
 const closePopupButton = document.querySelectorAll('.popup__close');
 closePopupButton.forEach(function(entry) {
