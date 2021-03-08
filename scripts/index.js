@@ -54,7 +54,7 @@ function closePopup (evt) {
   currentPopup.classList.remove('popup_is-opened');
 }
 
-const toggleLike = (evt) => {
+function toggleLike (evt) {
   evt.target.classList.toggle('cards__like-button-active');
 }
 
