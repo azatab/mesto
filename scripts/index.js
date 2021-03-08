@@ -1,10 +1,10 @@
 const initialCards = [
-  {name: 'Гора Эльбрус', link: '../images/elbrus2.jpg'},
-  {name: 'Уральские горы', link: '../images/ural-mnts.jpg'},
-  {name: 'Уфа', link: '../images/ufa.jpg'},
-  {name: 'Карачаево-Черкессия', link: '../images/elbrus3.jpg'},
-  {name: 'Памятник Салавату Юлаеву', link: '../images/ufa.jpg'},
-  {name: 'Уральские горы', link: '../images/ural-mnts.jpg'}
+  {name: 'Гора Эльбрус', link: './images/elbrus2.jpg'},
+  {name: 'Уральские горы', link: './images/ural-mnts.jpg'},
+  {name: 'Уфа', link: './images/ufa.jpg'},
+  {name: 'Карачаево-Черкессия', link: './images/elbrus3.jpg'},
+  {name: 'Памятник Салавату Юлаеву', link: './images/ufa.jpg'},
+  {name: 'Уральские горы', link: './images/ural-mnts.jpg'}
 ];
 
 let editProfileButton = document.querySelector('#profile-edit');
