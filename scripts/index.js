@@ -22,6 +22,7 @@ const formEditElement = document.querySelector('.edit-form');
 const formAddElement = document.querySelector('.add-form');
 const templateCard = document.querySelector('.template-card');
 const cardsContainer = document.querySelector('.cards__list');
+const ESC_KEYCODE = 27;
 
 function handleEditFormSubmit (event) {
   event.preventDefault();
@@ -36,8 +37,10 @@ function handleAddFormSubmit (event) {
   const inputLink = inputImageLink.value;
   const newPlace = createCardDomNode({name: inputPlace, link: inputLink});
   cardsContainer.prepend(newPlace);
-  formAddElement.reset();
+  //formAddElement.reset();
   closePopup(event.target.closest('.popup'));
+  inputPlaceName.value = '';
+  inputImageLink.value = '';
 }
 
 function openProfilePopup () {
@@ -46,12 +49,34 @@ function openProfilePopup () {
   openPopup(popupEdit);
 }
 
+const findActivePopup = () => {
+  return document.querySelector('.popup_is-opened');
+}
+
+const handleEscUp = (event) => {
+  event.preventDefault;
+  if (event.which === ESC_KEYCODE) {
+    closePopup(findActivePopup());
+  }
+};
+
+const handleMouseClickOutside = (event) => {
+  if (event.target.matches('.popup_is-opened')) {
+  closePopup(findActivePopup());
+  }
+};
+
 function openPopup (popup) {
   popup.classList.add('popup_is-opened');
+  document.addEventListener('keyup', handleEscUp);
+  document.addEventListener('click', handleMouseClickOutside);
+  enableValidation(validationObject);
 }
 
 function closePopup (popup) {
   popup.classList.remove('popup_is-opened');
+  document.removeEventListener('keyup', handleEscUp);
+  document.removeEventListener('click', handleMouseClickOutside);
 }
 
 function toggleLike (event) {
