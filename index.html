@@ -48,10 +48,10 @@
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="form edit-form" name="profile-info" novalidate>
           <fieldset class="form__fieldset">
-            <input class="form__input form__input_type_error" type="text" id="input-name" aria-label="имя" placeholder="Имя" name="name" minlength="2" maxlength="40" required>
-            <span class="form__input-error"></span>
-            <input class="form__input form__input_type_error" type="text" id="input-job" aria-label="работа" placeholder="Работа" name="job" minlength="2" maxlength="200" required>
-            <span class="form__input-error"></span>
+            <input class="form__input" type="text" id="input-name" aria-label="имя" placeholder="Имя" name="name" minlength="2" maxlength="40" required>
+            <span class="input-name-error form__input-error"></span>
+            <input class="form__input" type="text" id="input-job" aria-label="работа" placeholder="Работа" name="job" minlength="2" maxlength="200" required>
+            <span class="input-job-error form__input-error"></span>
             <button class="button form__save" type="submit" id="save" aria-label="сохранить">Сохранить</button>
           </fieldset>
         </form>
@@ -65,9 +65,9 @@
         <form class="form add-form" name="profile-info" novalidate>
           <fieldset class="form__fieldset">
             <input class="form__input form__input_type_error" type="text" id="input-place-name" aria-label="Название" placeholder="Название" name="place" minlength="2" maxlength="30" required>
-            <span class="form__input-error"></span>
+            <span class="input-place-name-error form__input-error"></span>
             <input class="form__input form__input_type_error" type="url" id="input-image-link" aria-label="ссылка" placeholder="Ссылка на картинку" name="link" required>
-            <span class="form__input-error"></span>
+            <span class="input-image-link-error form__input-error"></span>
             <button class="button form__save" type="submit" id="save" aria-label="сохранить">Создать</button>
           </fieldset>
         </form>
@@ -97,6 +97,7 @@
   </template>
 
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/validate.js"></script>
 </body>
 
 </html>
