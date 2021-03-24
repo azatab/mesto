@@ -22,6 +22,8 @@ const formEditElement = document.querySelector('.edit-form');
 const formAddElement = document.querySelector('.add-form');
 const templateCard = document.querySelector('.template-card');
 const cardsContainer = document.querySelector('.cards__list');
+const image = document.querySelector('.popup-image__photo');
+const caption = document.querySelector('.popup-image__figcaption');
 const ESC_KEYCODE = 27;
 
 function handleEditFormSubmit (event) {
@@ -37,10 +39,8 @@ function handleAddFormSubmit (event) {
   const inputLink = inputImageLink.value;
   const newPlace = createCardDomNode({name: inputPlace, link: inputLink});
   cardsContainer.prepend(newPlace);
-  //formAddElement.reset();
   closePopup(event.target.closest('.popup'));
-  inputPlaceName.value = '';
-  inputImageLink.value = '';
+  formAddElement.reset();
 }
 
 function openProfilePopup () {
@@ -54,7 +54,6 @@ const findActivePopup = () => {
 }
 
 const handleEscUp = (event) => {
-  event.preventDefault;
   if (event.which === ESC_KEYCODE) {
     closePopup(findActivePopup());
   }
@@ -70,13 +69,17 @@ function openPopup (popup) {
   popup.classList.add('popup_is-opened');
   document.addEventListener('keyup', handleEscUp);
   document.addEventListener('click', handleMouseClickOutside);
-  enableValidation(validationObject);
+  const inputList = Array.from(popup.querySelectorAll('.form__input'));
+  const buttonElement = popup.querySelector('.button');
+  console.log(buttonElement);
+  toggleButtonState(inputList, buttonElement, {inactiveButtonClass: 'form__save_inactive'});
 }
 
 function closePopup (popup) {
   popup.classList.remove('popup_is-opened');
   document.removeEventListener('keyup', handleEscUp);
   document.removeEventListener('click', handleMouseClickOutside);
+
 }
 
 function toggleLike (event) {
@@ -91,8 +94,6 @@ function deleteCard(event) {
 
 function exploreImage(event) {
   openPopup(popupImage);
-  const image = document.querySelector('.popup-image__photo');
-  const caption = document.querySelector('.popup-image__figcaption');
   image.src = event.target.src;
   image.alt = event.target.alt;
   caption.textContent = event.target.alt;

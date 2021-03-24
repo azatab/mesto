@@ -71,9 +71,11 @@ const setInputListeners = (formElement, {...rest}) => {
 
 const enableValidation = ({...rest}) => {
   const formList = Array.from(document.querySelectorAll(rest.formSelector));
+  console.log(formList);
   formList.forEach((formElement) => {
-    formElement.addEventListener('submit', (evt) => {evt.preventDefault});
+    formElement.addEventListener('submit', (evt) => {evt.preventDefault()});
     setInputListeners(formElement, rest);
   });
-  
 };
+
+enableValidation(validationObject);
