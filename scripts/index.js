@@ -69,10 +69,6 @@ function openPopup (popup) {
   popup.classList.add('popup_is-opened');
   document.addEventListener('keyup', handleEscUp);
   document.addEventListener('click', handleMouseClickOutside);
-  const inputList = Array.from(popup.querySelectorAll('.form__input'));
-  const buttonElement = popup.querySelector('.button');
-  console.log(buttonElement);
-  toggleButtonState(inputList, buttonElement, {inactiveButtonClass: 'form__save_inactive'});
 }
 
 function closePopup (popup) {
@@ -128,8 +124,20 @@ function renderInitialCards() {
 }
 renderInitialCards();
 
-editProfileButton.addEventListener('click', openProfilePopup);
-addButton.addEventListener('click', () => openPopup(popupAdd));
+const callToggleButtonFunction = (popup) => {
+  const inputList = Array.from(popup.querySelectorAll('.form__input'));
+  const buttonElement = popup.querySelector('.button');
+  toggleButtonState(inputList, buttonElement, {inactiveButtonClass: 'form__save_inactive'});
+};
+
+editProfileButton.addEventListener('click', () => {
+  callToggleButtonFunction(popupEdit);
+  openProfilePopup();
+});
+addButton.addEventListener('click', () => {
+  callToggleButtonFunction(popupAdd);
+  openPopup(popupAdd);
+});
 
 formEditElement.addEventListener('submit', handleEditFormSubmit);
 formAddElement.addEventListener('submit', handleAddFormSubmit);
