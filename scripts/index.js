@@ -1,4 +1,4 @@
-import {initialCards, editProfileButton, addButton, popupEdit, popupAdd, profileName, profileJob, inputName, inputJob, inputPlaceName, inputImageLink, formAddElement, formEditElement, templateCard, cardsContainer, ESC_KEYCODE, validationObject} from './constants.js'
+import {initialCards, editProfileButton, addButton, popupEdit, popupAdd, profileName, profileJob, inputName, inputJob, inputPlaceName, inputImageLink, formAddElement, formEditElement, templateCard, cardsContainer, defaultFormConfig} from './constants.js'
 import {Card} from './Card.js'
 import {FormValidator} from './FormValidator.js'
 
@@ -7,7 +7,7 @@ function handleEditFormSubmit (event) {
   event.preventDefault();
   profileName.textContent =  inputName.value;
   profileJob.textContent = inputJob.value;
-  closePopup(event.target.closest('.popup'));
+  closePopup(popupEdit);
 }
 
 function handleAddFormSubmit (event) {
@@ -17,7 +17,7 @@ function handleAddFormSubmit (event) {
   const newPlace = new Card({name: inputPlace, link: inputLink}, templateCard)
   const cardElement = newPlace.generateCard()
   cardsContainer.prepend(cardElement)
-  closePopup(event.target.closest('.popup'));
+  closePopup(popupAdd);
   formAddElement.reset();
 }
 
@@ -32,7 +32,7 @@ const findActivePopup = () => {
 }
 
 const handleEscUp = (event) => {
-  if (event.which === ESC_KEYCODE) {
+  if (event.key === 'Escape') {
     closePopup(findActivePopup());
   }
 };
@@ -67,19 +67,22 @@ renderInitialCards();
 
 editProfileButton.addEventListener('click', () => {
   openProfilePopup();
-  const validatorTest = new FormValidator(validationObject, popupEdit).enableValidation()
+  validateEditForm.enableValidation()
 });
 
 addButton.addEventListener('click', () => {
   openPopup(popupAdd);
-  const validatorTest = new FormValidator(validationObject, popupAdd).enableValidation()
+  validateAddForm.enableValidation()
 });
 
 formEditElement.addEventListener('submit', handleEditFormSubmit);
 formAddElement.addEventListener('submit', handleAddFormSubmit);
 
-const closePopupButton = document.querySelectorAll('.popup__close');
-closePopupButton.forEach(function(entry) {
+const closePopupButtons = document.querySelectorAll('.popup__close');
+closePopupButtons.forEach(function(entry) {
   const popup = entry.closest('.popup');
   entry.addEventListener('click', () => closePopup(popup));
 });
+
+const validateEditForm = new FormValidator(defaultFormConfig, popupEdit)
+const validateAddForm = new FormValidator(defaultFormConfig, popupAdd)

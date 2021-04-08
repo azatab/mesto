@@ -7,7 +7,7 @@ export const initialCards = [
   {name: 'Уральские горы', link: './images/ural-mnts.jpg'}
 ];
 
-export const validationObject = {
+export const defaultFormConfig = {
   formSelector: '.form',
   inputSelector: '.form__input',
   submitButtonSelector: '.form__save',
@@ -20,7 +20,6 @@ export const editProfileButton = document.querySelector('#profile-edit');
 export const addButton = document.querySelector('.profile__add-button');
 export const popupEdit = document.querySelector('.popup-edit');
 export const popupAdd = document.querySelector('.popup-add');
-export const popupImage = document.querySelector('.popup-image');
 export const profileName = document.querySelector('.profile__name');
 export const profileJob = document.querySelector('.profile__job');
 export const inputName = document.querySelector('#input-name');
@@ -31,6 +30,3 @@ export const formEditElement = document.querySelector('.edit-form');
 export const formAddElement = document.querySelector('.add-form');
 export const templateCard = document.querySelector('.template-card');
 export const cardsContainer = document.querySelector('.cards__list');
-export const image = document.querySelector('.popup-image__photo');
-export const caption = document.querySelector('.popup-image__figcaption');
-export const ESC_KEYCODE = 27;
