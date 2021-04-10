@@ -67,12 +67,12 @@ renderInitialCards();
 
 editProfileButton.addEventListener('click', () => {
   openProfilePopup();
-  validateEditForm.enableValidation()
+  validateEditForm.checkFormStateOnOpen()
 });
 
 addButton.addEventListener('click', () => {
   openPopup(popupAdd);
-  validateAddForm.enableValidation()
+  validateAddForm.checkFormStateOnOpen()
 });
 
 formEditElement.addEventListener('submit', handleEditFormSubmit);
@@ -86,3 +86,7 @@ closePopupButtons.forEach(function(entry) {
 
 const validateEditForm = new FormValidator(defaultFormConfig, popupEdit)
 const validateAddForm = new FormValidator(defaultFormConfig, popupAdd)
+validateEditForm.enableValidation()
+validateAddForm.enableValidation()
+//validateEditForm.toggleButtonState()
+//validateAddForm._toggleButtonState()

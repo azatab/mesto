@@ -37,7 +37,7 @@ export class Card {
   //накладываем обработчики
   _addTaskListeners() {
     this._element.querySelector('.cards__delete-button').addEventListener('click', () => this._handleDeleteCard());
-    this._element.querySelector('.cards__like-button').addEventListener('click', () => {this._toggleLike()});
+    this._element.querySelector('.cards__like-button').addEventListener('click', () => this._toggleLike());
     this._element.querySelector('.cards__image').addEventListener('click', this._exploreImage);
   }
   //создаем карточку
