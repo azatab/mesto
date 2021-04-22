@@ -1,17 +1,13 @@
-import {openPopup} from './index.js'
-const popupImage = document.querySelector('.popup-image');
-const image = document.querySelector('.popup-image__photo');
-const caption = document.querySelector('.popup-image__figcaption');
-
-export class Card {
-  constructor(data, template) {
-    this._title = data.name
-    this._link = data.link
-    this._template = template
+export default class Card {
+    constructor({item, handleCardClick}, cardSelector) {
+    this._title = item.name
+    this._link = item.link
+    this._handleCardClick = handleCardClick
+    this._cardSelector = cardSelector
   }
   //получаем шаблон разметки карточки
   _getTemplate() {
-    const cardElement = this._template.content.querySelector('.cards__item').cloneNode(true)
+    const cardElement = document.querySelector(this._cardSelector).content.querySelector('.cards__item').cloneNode(true)
     return cardElement
   }
 
@@ -23,22 +19,14 @@ export class Card {
 
   //лайк карточки
   _toggleLike() {
-    this._element.querySelector('.cards__like-button').classList.toggle('cards__like-button-active');
-  }
-
-  //открытие попапа с увеличенным изображением
-  _exploreImage(event) {
-    image.src = event.target.src;
-    image.alt = event.target.alt;
-    caption.textContent = event.target.alt;
-    openPopup(popupImage);
+    this._element.querySelector('.cards__like-button').classList.toggle('cards__like-button-active')
   }
 
   //накладываем обработчики
   _addTaskListeners() {
     this._element.querySelector('.cards__delete-button').addEventListener('click', () => this._handleDeleteCard());
     this._element.querySelector('.cards__like-button').addEventListener('click', () => this._toggleLike());
-    this._element.querySelector('.cards__image').addEventListener('click', this._exploreImage);
+    this._element.querySelector('.cards__image').addEventListener('click', () => this._handleCardClick(this._title, this._link));
   }
   //создаем карточку
   generateCard() {
