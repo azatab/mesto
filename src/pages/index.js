@@ -5,7 +5,7 @@ import Section from '../components/Section.js'
 import PopupWithForm from '../components/PopupWithForm.js'
 import PopupWithImage from '../components/PopupWithImage.js'
 import UserInfo from '../components/UserInfo.js'
-//import '../pages/index.css'
+import '../pages/index.css'
 
 const popupWithImage = new PopupWithImage(popupWithZoomedImage)
 popupWithImage.setEventListeners()

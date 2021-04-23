@@ -6,21 +6,20 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 
 <body class="page">
   <div class="page__container">
 
     <header class="header page__section">
-      <img class="header__logo" src="./images/logo-vect.svg" alt="Место Россия">
+      <img class="header__logo" src="<%=require('./images/logo-vect.svg')%>" alt="Место Россия">
     </header>
 
     <main>
 
       <section class="profile page__section">
         <div class="profile__container">
-          <img class="profile__avatar" src="./images/cousteau.jpg" alt="Кусто">
+          <img class="profile__avatar" src="<%=require('./images/cousteau.jpg')%>" alt="Кусто">
           <div class="profile__info">  
             <div class="profile__description">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -95,8 +94,6 @@
       <button class="button cards__like-button" type="button" aria-label="поставить лайк"></button>
     </li>
   </template>
-
-  <script type="module" src="./pages/index.js"></script>
   
 </body>
 

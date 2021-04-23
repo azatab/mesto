@@ -1,10 +1,15 @@
+import elbrus2 from '../images/elbrus2.jpg'
+import uralMnts from '../images/ural-mnts.jpg'
+import elbrus3 from '../images/elbrus3.jpg'
+import ufa from '../images/ufa.jpg'
+
 export const initialCards = [
-  {name: 'Гора Эльбрус', link: './images/elbrus2.jpg'},
-  {name: 'Уральские горы', link: './images/ural-mnts.jpg'},
-  {name: 'Уфа', link: './images/ufa.jpg'},
-  {name: 'Карачаево-Черкессия', link: './images/elbrus3.jpg'},
-  {name: 'Памятник Салавату Юлаеву', link: './images/ufa.jpg'},
-  {name: 'Уральские горы', link: './images/ural-mnts.jpg'}
+  {name: 'Гора Эльбрус', link: elbrus2},
+  {name: 'Уральские горы', link: uralMnts},
+  {name: 'Уфа', link: ufa},
+  {name: 'Карачаево-Черкессия', link: elbrus3},
+  {name: 'Памятник Салавату Юлаеву', link: ufa},
+  {name: 'Уральские горы', link: uralMnts}
 ];
 
 export const defaultFormConfig = {
