@@ -1,6 +1,6 @@
-# Проектная работа №4-5-6-7: Место
+# Проектная работа №4-5-6-7-8: Место
 
-![Logo](https://azatab.github.io/mesto/images/logo-vect.svg)
+![Logo](https://azatab.github.io/mesto/src/images/logo-vect.svg)
 
 ## Описание
 
