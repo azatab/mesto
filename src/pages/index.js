@@ -1,4 +1,4 @@
-import {initialCards, editProfileButton, addButton, popupEdit, popupAdd, profileName, profileJob, inputName, inputJob, cardsContainer, defaultFormConfig, popupWithZoomedImage} from '../utils/constants.js'
+import {initialCards, editProfileButton, addButton, popupEdit, popupAdd, inputName, inputJob, cardsContainer, defaultFormConfig, popupWithZoomedImage} from '../utils/constants.js'
 import Card from '../components/Card.js'
 import FormValidator from '../components/FormValidator.js'
 import Section from '../components/Section.js'
@@ -38,7 +38,7 @@ const addNewCard = new PopupWithForm (popupAdd, {
 })
 addNewCard.setEventListeners()
 
-const userInfo = new UserInfo({profileName, profileJob})
+const userInfo = new UserInfo({name: '.profile__name', job: '.profile__job'})
 
 const editProfile = new PopupWithForm(popupEdit, {
   handleFormSubmit: (data) => {
