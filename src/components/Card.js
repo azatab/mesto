@@ -31,9 +31,10 @@ export default class Card {
   //создаем карточку
   generateCard() {
     this._element = this._getTemplate()
+    const imageContainer = this._element.querySelector('.cards__image')
     this._element.querySelector('.cards__title').textContent = this._title
-    this._element.querySelector('.cards__image').src = this._link
-    this._element.querySelector('.cards__image').alt = this._title
+    imageContainer.src = this._link
+    imageContainer.alt = this._title
     this._addTaskListeners()
     return this._element
   }
