@@ -35,4 +35,4 @@ export const formEditElement = document.querySelector('.edit-form');
 export const formAddElement = document.querySelector('.add-form');
 export const templateCard = document.querySelector('.template-card');
 export const cardsContainer = document.querySelector('.cards__list');
-export const popupWithZoomedImage = document.querySelector('.popup-image');
+//export const popupWithZoomedImage = document.querySelector('.popup-image');

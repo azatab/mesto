@@ -7,7 +7,7 @@ import PopupWithImage from '../components/PopupWithImage.js'
 import UserInfo from '../components/UserInfo.js'
 import '../pages/index.css'
 
-const popupWithImage = new PopupWithImage(popupWithZoomedImage)
+const popupWithImage = new PopupWithImage('.popup-image')
 popupWithImage.setEventListeners()
 
 const createCard = (item) => {
@@ -26,7 +26,7 @@ const cards = new Section({
 
 cards.renderItems()
 
-const addNewCard = new PopupWithForm (popupAdd, {
+const addNewCard = new PopupWithForm ('.popup-add', {
   handleFormSubmit: (data) => {
     const item = {
       name: data.place,
@@ -40,7 +40,7 @@ addNewCard.setEventListeners()
 
 const userInfo = new UserInfo({name: '.profile__name', job: '.profile__job'})
 
-const editProfile = new PopupWithForm(popupEdit, {
+const editProfile = new PopupWithForm('.popup-edit', {
   handleFormSubmit: (data) => {
     const item = {
       name: data.name,
