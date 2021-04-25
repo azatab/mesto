@@ -1,4 +1,4 @@
-import {initialCards, editProfileButton, addButton, popupEdit, popupAdd, inputName, inputJob, cardsContainer, defaultFormConfig, popupWithZoomedImage} from '../utils/constants.js'
+import {initialCards, editProfileButton, addButton, popupEdit, popupAdd, inputName, inputJob, cardsContainer, defaultFormConfig} from '../utils/constants.js'
 import Card from '../components/Card.js'
 import FormValidator from '../components/FormValidator.js'
 import Section from '../components/Section.js'
