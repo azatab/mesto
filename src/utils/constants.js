@@ -1,4 +1,4 @@
-import elbrus2 from '../images/elbrus2.jpg'
+/* import elbrus2 from '../images/elbrus2.jpg'
 import uralMnts from '../images/ural-mnts.jpg'
 import elbrus3 from '../images/elbrus3.jpg'
 import ufa from '../images/ufa.jpg'
@@ -10,7 +10,7 @@ export const initialCards = [
   {name: 'Карачаево-Черкессия', link: elbrus3},
   {name: 'Памятник Салавату Юлаеву', link: ufa},
   {name: 'Уральские горы', link: uralMnts}
-];
+]; */
 
 export const defaultFormConfig = {
   formSelector: '.form',

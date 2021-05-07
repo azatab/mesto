@@ -20,6 +20,7 @@
       <section class="profile page__section">
         <div class="profile__container">
           <img class="profile__avatar" src="<%=require('./images/cousteau.jpg')%>" alt="Кусто">
+          <button class="profile__avatar-edit" aria-label="редактировать аватар"></button>
           <div class="profile__info">  
             <div class="profile__description">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -84,6 +85,16 @@
       </div>
     </div>
 
+    <div class="popup popup-confirm-delete">
+      <div class="popup__container">
+        <h2 class="popup__title">Вы уверены?</h2>
+        
+        <button class="button form__save" type="submit" aria-label="Да">Да</button>
+        <button class="button popup__close" type="button" aria-label="закрыть"></button>
+      </div>
+    </div>
+
+    
   </div>
 
   <template class="template-card">

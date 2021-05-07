@@ -10,7 +10,6 @@ export default class Popup {
   }
 
   close() {
-    console.log('what')
     this._popup.classList.remove('popup_is-opened')
     document.removeEventListener('keyup', this._handleEscClose)
   }
