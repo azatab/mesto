@@ -1,6 +1,6 @@
 import '../pages/index.css'
 
-import {/*initialCards, */editProfileButton, addButton, popupEdit, popupAdd, inputName, inputJob, cardsContainer, defaultFormConfig} from '../utils/constants.js'
+import {/*initialCards, */editProfileButton, addButton, popupEdit, popupAdd, popupAvatarUpdate, inputName, inputJob, cardsContainer, defaultFormConfig, editAvatarButton} from '../utils/constants.js'
 import Card from '../components/Card.js'
 import FormValidator from '../components/FormValidator.js'
 import Section from '../components/Section.js'
@@ -8,7 +8,7 @@ import PopupWithForm from '../components/PopupWithForm.js'
 import PopupWithImage from '../components/PopupWithImage.js'
 import UserInfo from '../components/UserInfo.js'
 import Api from '../components/Api.js'
-import PopupWothConfirm from '../components/PopupWithConfirm'
+import PopupWithConfirm from '../components/PopupWithConfirm'
 let userId
 
 const api = new Api({
@@ -35,7 +35,7 @@ Promise.all([api.getCards(), api.getUserInfo()])
 const popupWithImage = new PopupWithImage('.popup-image')
 popupWithImage.setEventListeners()
 
-const popupWithConfirm = new PopupWothConfirm('.popup-confirm-delete')
+const popupWithConfirm = new PopupWithConfirm('.popup-confirm-delete')
 popupWithConfirm.setEventListeners()
 
 const createCard = (item) => {
@@ -84,7 +84,6 @@ const cards = new Section({
     cards.addItem(card)
     //console.log(item)
     //card.setLikeCount(item)
-    
   }
 }, cardsContainer)
 
@@ -104,12 +103,6 @@ const addNewCard = new PopupWithForm ('.popup-add', {
     .finally(() => {
       addNewCard.close()
     })
-    /* const item = {
-      name: data.place,
-      link: data.link
-    }
-    cards.addItem(createCard(item))
-    addNewCard.close() */
   }
 })
 addNewCard.setEventListeners()
@@ -119,6 +112,24 @@ const userInfo = new UserInfo({
   job: '.profile__job', 
   avatar: '.profile__avatar'
 })
+
+const editAvatar = new PopupWithForm('.popup-avatar-update', {
+  handleFormSubmit: () => {
+    const inputLink = editAvatar.getInputValues()
+    console.log(inputLink)
+    api.setAvatar(inputLink.link)
+    .then((res) => {
+      userInfo.setUserAvatar(res)
+    })
+    .catch((err) => {
+      console.log(`Ошибка установки нового аватара - ${err}`)
+    })
+    .finally(() => {
+      editAvatar.close()
+    })
+  }
+})
+editAvatar.setEventListeners()
 
 const editProfile = new PopupWithForm('.popup-edit', {
   handleFormSubmit: (data) => {
@@ -133,15 +144,13 @@ const editProfile = new PopupWithForm('.popup-edit', {
     .finally(() => {
       editProfile.close()
     })
-    /* const item = {
-      name: data.name,
-      job: data.job
-    } 
-    userInfo.setUserInfo(item)
-    editProfile.close()    */
   }
 })
 editProfile.setEventListeners()
+
+editAvatarButton.addEventListener('click', () => {
+  editAvatar.open()
+})
 
 editProfileButton.addEventListener('click', () => {
   const profileFields = userInfo.getUserInfo()
@@ -158,5 +167,7 @@ addButton.addEventListener('click', () => {
 
 const validateEditForm = new FormValidator(defaultFormConfig, popupEdit)
 const validateAddForm = new FormValidator(defaultFormConfig, popupAdd)
+const validateAvatarForm = new FormValidator(defaultFormConfig, popupAvatarUpdate)
 validateEditForm.enableValidation()
 validateAddForm.enableValidation()
+validateAvatarForm.enableValidation()

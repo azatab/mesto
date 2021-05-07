@@ -1,6 +1,6 @@
 import Popup from "./Popup.js";
 
-export default class PopupWothConfirm extends Popup {
+export default class PopupWithConfirm extends Popup {
   constructor(popupSelector) {
     super(popupSelector)
     this._popup = document.querySelector('.popup-confirm-delete')

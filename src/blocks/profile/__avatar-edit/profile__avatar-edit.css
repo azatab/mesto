@@ -15,4 +15,5 @@
   background-image: url(../../../images/pen2.png);
   background-color: black;
   opacity: .8;
+  transition: .2s linear;
 }

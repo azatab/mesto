@@ -22,9 +22,11 @@ export const defaultFormConfig = {
 };
 
 export const editProfileButton = document.querySelector('#profile-edit');
+export const editAvatarButton = document.querySelector('.profile__avatar-edit');
 export const addButton = document.querySelector('.profile__add-button');
 export const popupEdit = document.querySelector('.popup-edit');
 export const popupAdd = document.querySelector('.popup-add');
+export const popupAvatarUpdate = document.querySelector('.popup-avatar-update');
 export const inputName = document.querySelector('#input-name');
 export const inputJob = document.querySelector('#input-job');
 export const inputPlaceName = document.querySelector('#input-place-name');
