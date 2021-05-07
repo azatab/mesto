@@ -88,7 +88,11 @@
     <div class="popup popup-confirm-delete">
       <div class="popup__container">
         <h2 class="popup__title">Вы уверены?</h2>
-        <button class="button form__save" type="submit" aria-label="Да">Да</button>
+        <form class="form confirm-form" novalidate>
+          <fieldset class="form__fieldset">
+          <button class="button form__save" type="submit" aria-label="Да">Да</button>
+          </fieldset>
+        </form>
         <button class="button popup__close" type="button" aria-label="закрыть"></button>
       </div>
     </div>
