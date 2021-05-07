@@ -1,6 +1,6 @@
 import '../pages/index.css'
 
-import {/*initialCards, */editProfileButton, addButton, popupEdit, popupAdd, popupAvatarUpdate, inputName, inputJob, cardsContainer, defaultFormConfig, editAvatarButton} from '../utils/constants.js'
+import {editProfileButton, addButton, popupEdit, popupAdd, popupAvatarUpdate, inputName, inputJob, cardsContainer, defaultFormConfig, editAvatarButton} from '../utils/constants.js'
 import Card from '../components/Card.js'
 import FormValidator from '../components/FormValidator.js'
 import Section from '../components/Section.js'
@@ -19,7 +19,7 @@ const api = new Api({
   }
 })
 
-//api.getUserInfo()
+
 Promise.all([api.getCards(), api.getUserInfo()])
   .then(([cardsObj, userData]) => {
     userId = userData._id
@@ -78,19 +78,17 @@ const createCard = (item) => {
 }
 
 const cards = new Section({
-  //items: initialCards, 
   renderer: (item) => {
     const card = createCard(item)
     cards.addItem(card)
-    //console.log(item)
-    //card.setLikeCount(item)
   }
 }, cardsContainer)
 
-//cards.renderItems()
+
 
 const addNewCard = new PopupWithForm ('.popup-add', {
   handleFormSubmit: (data) => {
+    addNewCard.toggleLoadingMsg(true)
     const inputValues = addNewCard.getInputValues()
     const newItem = api.loadCard(inputValues)
     newItem.then((item) => {
@@ -101,6 +99,7 @@ const addNewCard = new PopupWithForm ('.popup-add', {
       console.log(err)
     })
     .finally(() => {
+      addNewCard.toggleLoadingMsg(false)
       addNewCard.close()
     })
   }
@@ -115,6 +114,7 @@ const userInfo = new UserInfo({
 
 const editAvatar = new PopupWithForm('.popup-avatar-update', {
   handleFormSubmit: () => {
+    editAvatar.toggleLoadingMsg(true)
     const inputLink = editAvatar.getInputValues()
     console.log(inputLink)
     api.setAvatar(inputLink.link)
@@ -125,6 +125,7 @@ const editAvatar = new PopupWithForm('.popup-avatar-update', {
       console.log(`Ошибка установки нового аватара - ${err}`)
     })
     .finally(() => {
+      editAvatar.toggleLoadingMsg(false)
       editAvatar.close()
     })
   }
@@ -133,6 +134,7 @@ editAvatar.setEventListeners()
 
 const editProfile = new PopupWithForm('.popup-edit', {
   handleFormSubmit: (data) => {
+    editProfile.toggleLoadingMsg(true)
     const inputValues = editProfile.getInputValues()
     const newUser = api.setUserInfo(inputValues)
     .then((data) => {
@@ -142,6 +144,7 @@ const editProfile = new PopupWithForm('.popup-edit', {
       console.log(err)
     })
     .finally(() => {
+      editProfile.toggleLoadingMsg(false)
       editProfile.close()
     })
   }

@@ -70,8 +70,7 @@ export default class Card {
     } else {
       this._element.querySelector('.cards__delete-button').style.display = 'none'
     }
-    //this._element.querySelector
-
+    
     this.setLikeCount(this._item)
     this._addTaskListeners()
     return this._element
