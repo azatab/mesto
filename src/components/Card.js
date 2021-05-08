@@ -57,6 +57,15 @@ export default class Card {
 
     this._element.querySelector('.cards__image').addEventListener('click', () => this._handleCardClick(this._title, this._link));
   }
+
+  _checkLikedState() {
+    this._item.likes.forEach((item) => {
+      if (item._id === this._userId) {
+        this._toggleLike()
+      }
+    })
+  }
+
   //создаем карточку
   generateCard() {
     this._element = this._getTemplate()
@@ -73,6 +82,7 @@ export default class Card {
     
     this.setLikeCount(this._item)
     this._addTaskListeners()
+    this._checkLikedState()
     return this._element
   }
-}
+} 

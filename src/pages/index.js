@@ -116,7 +116,7 @@ const editAvatar = new PopupWithForm('.popup-avatar-update', {
   handleFormSubmit: () => {
     editAvatar.toggleLoadingMsg(true)
     const inputLink = editAvatar.getInputValues()
-    console.log(inputLink)
+    //console.log(inputLink)
     api.setAvatar(inputLink.link)
     .then((res) => {
       userInfo.setUserAvatar(res)
@@ -153,6 +153,7 @@ editProfile.setEventListeners()
 
 editAvatarButton.addEventListener('click', () => {
   editAvatar.open()
+  validateAvatarForm.checkFormStateOnOpen()
 })
 
 editProfileButton.addEventListener('click', () => {
