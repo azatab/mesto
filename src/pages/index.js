@@ -19,13 +19,11 @@ const api = new Api({
   }
 })
 
-
 Promise.all([api.getCards(), api.getUserInfo()])
   .then(([cardsObj, userData]) => {
     userId = userData._id
 
     userInfo.setUserAvatar(userData)
-    //userInfo.getUserInfo(userData)
     userInfo.setUserInfo(userData)
 
     cards.renderItems(cardsObj)
@@ -45,7 +43,7 @@ const createCard = (item) => {
       popupWithImage.open(item)},
     handleDeleteClick: () => {
       popupWithConfirm.open()
-      popupWithConfirm.setSubmitAction(() => {
+      popupWithConfirm.SubmitActionHandler(() => {
         api.deleteCard(item._id)
           .then((item) => {
             card.deleteCard(item._id)
@@ -89,18 +87,16 @@ const cards = new Section({
 const addNewCard = new PopupWithForm ('.popup-add', {
   handleFormSubmit: (data) => {
     addNewCard.toggleLoadingMsg(true)
-    const inputValues = addNewCard.getInputValues()
-    const newItem = api.loadCard(inputValues)
+    const newItem = api.loadCard(data)
     newItem.then((item) => {
       cards.addItem(createCard(item))
-      
+      addNewCard.close()  
     })
     .catch((err) => {
       console.log(err)
     })
-    .finally(() => {
+    .finally((data) => {
       addNewCard.toggleLoadingMsg(false)
-      addNewCard.close()
     })
   }
 })
@@ -116,17 +112,16 @@ const editAvatar = new PopupWithForm('.popup-avatar-update', {
   handleFormSubmit: () => {
     editAvatar.toggleLoadingMsg(true)
     const inputLink = editAvatar.getInputValues()
-    //console.log(inputLink)
     api.setAvatar(inputLink.link)
     .then((res) => {
       userInfo.setUserAvatar(res)
+      editAvatar.close()
     })
     .catch((err) => {
       console.log(`Ошибка установки нового аватара - ${err}`)
     })
     .finally(() => {
       editAvatar.toggleLoadingMsg(false)
-      editAvatar.close()
     })
   }
 })
@@ -136,16 +131,16 @@ const editProfile = new PopupWithForm('.popup-edit', {
   handleFormSubmit: (data) => {
     editProfile.toggleLoadingMsg(true)
     const inputValues = editProfile.getInputValues()
-    const newUser = api.setUserInfo(inputValues)
+    api.setUserInfo(inputValues)
     .then((data) => {
       userInfo.setUserInfo(data)
+      editProfile.close()
     })
     .catch((err) => {
       console.log(err)
     })
     .finally(() => {
       editProfile.toggleLoadingMsg(false)
-      editProfile.close()
     })
   }
 })

@@ -10,9 +10,9 @@ export default class PopupWithForm extends Popup {
     this._inputList = this._form.querySelectorAll('.form__input')
   }
 
-  toggleLoadingMsg(state) {
+  toggleLoadingMsg(state, buttonText = 'Сохранение...') {
     if (state) {
-      this._submitButton.textContent = 'Сохранение...'
+      this._submitButton.textContent = buttonText
     } else {
       this._submitButton.textContent = this._submitButtonText
     }
