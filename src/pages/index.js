@@ -43,7 +43,7 @@ const createCard = (item) => {
       popupWithImage.open(item)},
     handleDeleteClick: () => {
       popupWithConfirm.open()
-      popupWithConfirm.SubmitActionHandler(() => {
+      popupWithConfirm.setSubmitAction(() => {
         api.deleteCard(item._id)
           .then((item) => {
             card.deleteCard(item._id)
